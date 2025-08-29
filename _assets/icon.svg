@@ -1,0 +1,59 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Definitions FIRST (including styles) -->
+  <defs>
+    <!-- Gradient Definition -->
+    <linearGradient id="linkGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#1E90FF"/>
+      <stop offset="50%" stop-color="#35A55A"/>
+      <stop offset="100%" stop-color="#07C160"/>
+    </linearGradient>
+
+    <!-- CSS Styles -->
+    <style>
+      #wechatRect {
+        transform-origin: center;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Rectangle - Using Light Grey -->
+  <rect width="100%" height="100%" fill="#e9e9ed" /> <!-- Light Grey Background -->
+
+  <!-- Dify Side (Shifted Left) -->
+  <circle cx="10" cy="30" r="5" fill="#1E90FF">
+    <animate attributeName="r" values="5; 5.5; 5" dur="1.5s" repeatCount="indefinite" begin="0s"/>
+  </circle>
+  <circle cx="35" cy="50" r="6" fill="#1E90FF">
+     <animate attributeName="r" values="6; 6.8; 6" dur="1.5s" repeatCount="indefinite" begin="0.2s"/>
+  </circle>
+  <circle cx="10" cy="70" r="5" fill="#1E90FF">
+     <animate attributeName="r" values="5; 5.5; 5" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+  </circle>
+
+  <!-- Curved paths connecting nodes (Shifted Left) -->
+  <path d="M 14 33 Q 25 40 31 46" stroke="#1E90FF" stroke-width="3.5" fill="none"/>
+  <path d="M 14 67 Q 25 60 31 54" stroke="#1E90FF" stroke-width="3.5" fill="none"/>
+
+  <!-- Connecting Bridge (Comment moved OUTSIDE the tag) -->
+  <!-- Path starts near middle blue node (cx=35) and ends near green rect (x=68) -->
+  <path d="M 41 50 Q 54 47 67 50"
+        stroke="url(#linkGradient)"
+        stroke-width="4"
+        fill="none"
+        stroke-linecap="round"
+        stroke-dasharray="6 4">
+    <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.8s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- WeChat Official Account Side (Remains in the same position) -->
+  <g>
+      <rect id="wechatRect" x="68" y="38" width="28" height="24" rx="8" ry="8" fill="#07C160">
+         <animateTransform attributeName="transform" type="scale" values="1; 1.03; 1" dur="1.8s" repeatCount="indefinite" additive="sum" begin="0.5s"/>
+      </rect>
+      <rect x="72" y="44" width="20" height="2.5" fill="white" rx="1"/>
+      <rect x="72" y="50" width="16" height="2.5" fill="white" rx="1"/>
+      <rect x="72" y="56" width="18" height="2.5" fill="white" rx="1"/>
+  </g>
+
+</svg>
